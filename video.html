@@ -3,33 +3,36 @@
 <html lang="ne">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RupeeSend Dashain 2026 Video</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RupeeSend Dashain 2026 — Send & Win</title>
 
 <style>
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  background: #171717;
-  font-family: Arial, sans-serif;
+  padding: 18px 12px;
+  background: #1a1010;
   color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px;
+  font-family: Arial, "Noto Sans Devanagari", sans-serif;
+  text-align: center;
 }
 
-h2 { margin: 4px 0 12px; }
+h2 {
+  margin: 0 0 12px;
+  color: #ffdc78;
+  font-size: 22px;
+}
 
 .video {
   position: relative;
   width: min(100%, 405px);
   aspect-ratio: 9 / 16;
+  margin: auto;
   overflow: hidden;
-  border-radius: 20px;
-  background: linear-gradient(145deg, #b00019, #ffb000);
-  border: 2px solid #f5c75e;
+  border: 2px solid #ffda72;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #8e0019, #e64017, #f6a623);
 }
 
 .website {
@@ -38,148 +41,189 @@ h2 { margin: 4px 0 12px; }
   width: 100%;
   height: 100%;
   border: 0;
+  opacity: .22;
   background: white;
-  opacity: .30;
 }
 
-.shade {
+.overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(70,0,0,.28),
-    rgba(100,0,0,.55) 42%,
-    rgba(35,0,0,.94)
-  );
+  background:
+    radial-gradient(ellipse at top, #ffca5030, transparent 50%),
+    linear-gradient(180deg, #62001688, #640013dd 55%, #240009f5);
+}
+
+.topics {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.topics span {
+  border: 1px solid #ffdf8b;
+  border-radius: 20px;
+  padding: 5px 7px;
+  background: #650018aa;
 }
 
 .content {
   position: absolute;
-  inset: 0;
+  z-index: 1;
+  inset: 55px 0 45px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 25px;
+  padding: 22px;
 }
 
 .flag {
-  font-size: 44px;
-  margin-bottom: 15px;
+  font-size: 40px;
+  margin-bottom: 10px;
 }
 
 .brand {
-  font-size: 23px;
+  color: #ffe08b;
   font-weight: 900;
-  color: #ffe08a;
-  margin-bottom: 20px;
+  font-size: 23px;
+  line-height: 1.35;
+  margin-bottom: 22px;
 }
 
 .message {
-  font-size: clamp(25px, 7vw, 34px);
-  line-height: 1.5;
+  font-size: clamp(24px, 6.7vw, 33px);
+  line-height: 1.55;
   font-weight: 900;
-  text-shadow: 2px 3px 5px #490000;
-  animation: appear .6s ease;
+  text-shadow: 0 3px 8px #37000b;
+  animation: pop .45s ease;
 }
 
-.sub {
+.subtitle {
+  margin-top: 15px;
   font-size: 17px;
-  line-height: 1.5;
-  margin-top: 18px;
+  line-height: 1.6;
 }
 
 .cta {
-  margin-top: 28px;
-  background: #ffdc68;
-  color: #8b0015;
-  padding: 13px 20px;
+  margin-top: 25px;
   border-radius: 30px;
-  font-size: 20px;
+  padding: 13px 20px;
+  color: #790018;
+  background: #ffdf70;
+  font-size: 22px;
   font-weight: 900;
-  box-shadow: 0 4px 15px #31000080;
+  box-shadow: 0 4px 18px #21000866;
 }
 
 .footer {
   position: absolute;
-  bottom: 17px;
-  left: 10px;
-  right: 10px;
-  font-size: 13px;
-  text-align: center;
-  color: white;
+  z-index: 2;
+  bottom: 12px;
+  left: 5px;
+  right: 5px;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.controls {
+  width: min(100%, 405px);
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 14px auto;
+}
+
+button, .link {
+  padding: 12px 15px;
+  border: 0;
+  border-radius: 9px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button {
+  background: #ffda72;
+  color: #650016;
+}
+
+.link {
+  background: white;
+  color: #650016;
 }
 
 .progress {
   width: min(100%, 405px);
   height: 5px;
-  background: #555;
-  margin-top: 12px;
-  border-radius: 5px;
+  border-radius: 9px;
   overflow: hidden;
+  background: #4b3838;
+  margin: 12px auto;
 }
 
 .bar {
-  width: 0;
   height: 100%;
-  background: #ffcf48;
+  width: 0;
+  background: #ffda72;
 }
 
-.controls {
-  display: flex;
-  gap: 10px;
-  margin-top: 14px;
+.note {
+  max-width: 405px;
+  margin: auto;
+  color: #ddd;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
-button, a {
-  padding: 11px 16px;
-  border: 0;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-button { background: #ffd55c; color: #720018; }
-a { background: white; color: #222; }
-
-@keyframes appear {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes pop {
+  from { opacity: 0; transform: translateY(12px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 </style>
 </head>
 
 <body>
 
-<h2>🇳🇵 Dashain 2026</h2>
+<h2>🇳🇵 RupeeSend Dashain 2026</h2>
 
 <div class="video">
-  <iframe class="website"
+  <iframe
+    class="website"
     src="https://rupeesend.github.io/dashain2026/"
-    title="RupeeSend campaign website">
+    title="RupeeSend campaign website"
+    loading="lazy">
   </iframe>
 
-  <div class="shade"></div>
+  <div class="overlay"></div>
 
-  <div class="content">
+  <nav class="topics">
+    <span>HOME</span>
+    <span>PRIZES</span>
+    <span>HOW TO JOIN</span>
+    <span>RULES</span>
+  </nav>
+
+  <main class="content">
     <div class="flag">🇳🇵 🎉</div>
     <div class="brand">RUPEESEND<br>DASHAIN 2026</div>
-
     <div id="message" class="message">
       यो दशैंमा RupeeSend बाट पैसा पठाउनुहोस्!
     </div>
-
-    <div id="sub" class="sub">
+    <div id="subtitle" class="subtitle">
       नेपालसँग जोडिइरहनुहोस् ❤️
     </div>
-
-    <div id="cta" class="cta" style="display:none">
-      SEND &amp; WIN!
-    </div>
-  </div>
+    <div id="cta" class="cta" hidden>SEND &amp; WIN!</div>
+  </main>
 
   <div class="footer">
     rupeesend.github.io/dashain2026
@@ -191,88 +235,166 @@ a { background: white; color: #222; }
 </div>
 
 <div class="controls">
-  <button onclick="startVideo()">▶ Play video</button>
-  <a href="https://rupeesend.github.io/dashain2026/"
-     target="_blank">Open campaign</a>
+  <button id="playBtn" onclick="startVideo()">▶ Play video + music</button>
+  <button id="muteBtn" onclick="toggleMusic()">🔊 Music on</button>
+  <a class="link"
+     href="https://rupeesend.github.io/dashain2026/"
+     target="_blank" rel="noopener">Open campaign</a>
 </div>
 
-<p>Play the 20-second preview, then screen-record it.</p>
+<p class="note">
+  Play the preview and record your screen to capture it.
+  The music starts only after you press Play.
+</p>
 
 <script>
 const scenes = [
   {
-    time: 0,
+    start: 0,
     message: "यो दशैंमा RupeeSend बाट पैसा पठाउनुहोस्!",
-    sub: "नेपालसँग जोडिइरहनुहोस् ❤️",
+    subtitle: "नेपालसँग जोडिइरहनुहोस् ❤️",
     cta: false
   },
   {
-    time: 5,
+    start: 5,
     message: "🎁 आकर्षक पुरस्कार जित्ने मौका नछुटाउनुहोस्!",
-    sub: "RupeeSend Dashain 2026",
+    subtitle: "RupeeSend Dashain 2026",
     cta: false
   },
   {
-    time: 10,
+    start: 10,
     message: "📱 आजै सहभागी हुनुहोस्!",
-    sub: "हाम्रो अभियान हेर्नुहोस् र नियम पढ्नुहोस्।",
+    subtitle: "अभियानका नियम पढ्नुहोस् र सहभागी हुनुहोस्।",
     cta: false
   },
   {
-    time: 15,
-    message: "SEND & WIN!",
-    sub: "RupeeSend Dashain 2026",
+    start: 15,
+    message: "RupeeSend Dashain 2026",
+    subtitle: "पैसा पठाउनुहोस् • पुरस्कार जित्ने मौका पाउनुहोस्",
     cta: true
   }
 ];
 
-let timer;
-let startedAt;
-let running = false;
+let startedAt = 0;
+let timer = null;
+let currentScene = -1;
+let audioContext = null;
+let musicOn = true;
+let melodyTimer = null;
+let noteIndex = 0;
 
-function showScene(scene) {
+function showScene(scene, index) {
+  currentScene = index;
+
   const message = document.getElementById("message");
   message.style.animation = "none";
-  message.offsetHeight;
-  message.style.animation = "appear .6s ease";
+  void message.offsetHeight;
+  message.style.animation = "pop .45s ease";
   message.textContent = scene.message;
 
-  document.getElementById("sub").textContent = scene.sub;
-  document.getElementById("cta").style.display =
-    scene.cta ? "block" : "none";
+  document.getElementById("subtitle").textContent = scene.subtitle;
+  document.getElementById("cta").hidden = !scene.cta;
+}
+
+function playNote() {
+  if (!audioContext || !musicOn) return;
+
+  const notes = [523.25, 659.25, 783.99, 659.25,
+                 587.33, 698.46, 783.99, 698.46];
+
+  const oscillator = audioContext.createOscillator();
+  const gain = audioContext.createGain();
+
+  oscillator.type = "sine";
+  oscillator.frequency.value = notes[noteIndex % notes.length];
+
+  gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+  gain.gain.exponentialRampToValueAtTime(
+    0.055, audioContext.currentTime + 0.04
+  );
+  gain.gain.exponentialRampToValueAtTime(
+    0.0001, audioContext.currentTime + 0.38
+  );
+
+  oscillator.connect(gain);
+  gain.connect(audioContext.destination);
+  oscillator.start();
+  oscillator.stop(audioContext.currentTime + 0.4);
+
+  noteIndex++;
+}
+
+async function startMusic() {
+  if (!musicOn) return;
+
+  try {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+
+    if (!audioContext) audioContext = new AudioCtx();
+    await audioContext.resume();
+
+    clearInterval(melodyTimer);
+    playNote();
+    melodyTimer = setInterval(playNote, 420);
+  } catch (error) {
+    console.log("Audio could not start.", error);
+  }
+}
+
+function stopMusic() {
+  clearInterval(melodyTimer);
+  melodyTimer = null;
+  if (audioContext && audioContext.state === "running") {
+    audioContext.suspend();
+  }
+}
+
+function toggleMusic() {
+  musicOn = !musicOn;
+  document.getElementById("muteBtn").textContent =
+    musicOn ? "🔊 Music on" : "🔇 Music off";
+
+  if (musicOn) {
+    startMusic();
+  } else {
+    stopMusic();
+  }
 }
 
 function startVideo() {
   clearInterval(timer);
-  running = true;
   startedAt = Date.now();
+  currentScene = -1;
+  noteIndex = 0;
+
+  document.getElementById("playBtn").textContent = "↻ Replay video";
+  startMusic();
 
   function tick() {
     const elapsed = (Date.now() - startedAt) / 1000;
 
     if (elapsed >= 20) {
       clearInterval(timer);
-      running = false;
-      showScene(scenes[3]);
+      timer = null;
+      stopMusic();
+
+      showScene(scenes[3], 3);
       document.getElementById("bar").style.width = "100%";
       return;
     }
 
-    let scene = scenes[0];
-    for (const item of scenes) {
-      if (elapsed >= item.time) scene = item;
+    let index = 0;
+    for (let i = 0; i < scenes.length; i++) {
+      if (elapsed >= scenes[i].start) index = i;
     }
 
-    if (window.currentScene !== scene.time) {
-      window.currentScene = scene.time;
-      showScene(scene);
-    }
+    if (index !== currentScene) showScene(scenes[index], index);
 
     document.getElementById("bar").style.width =
       (elapsed / 20 * 100) + "%";
   }
 
-  window.currentScene = -1;
   tick();
   timer = setInterval(tick, 100);
 }
