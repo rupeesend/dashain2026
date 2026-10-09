@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RupeeSend Dashain 2026 Video</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #171717;
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+
+h2 { margin: 4px 0 12px; }
+
+.video {
+  position: relative;
+  width: min(100%, 405px);
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #b00019, #ffb000);
+  border: 2px solid #f5c75e;
+}
+
+.website {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: white;
+  opacity: .30;
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(70,0,0,.28),
+    rgba(100,0,0,.55) 42%,
+    rgba(35,0,0,.94)
+  );
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 25px;
+}
+
+.flag {
+  font-size: 44px;
+  margin-bottom: 15px;
+}
+
+.brand {
+  font-size: 23px;
+  font-weight: 900;
+  color: #ffe08a;
+  margin-bottom: 20px;
+}
+
+.message {
+  font-size: clamp(25px, 7vw, 34px);
+  line-height: 1.5;
+  font-weight: 900;
+  text-shadow: 2px 3px 5px #490000;
+  animation: appear .6s ease;
+}
+
+.sub {
+  font-size: 17px;
+  line-height: 1.5;
+  margin-top: 18px;
+}
+
+.cta {
+  margin-top: 28px;
+  background: #ffdc68;
+  color: #8b0015;
+  padding: 13px 20px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: 900;
+  box-shadow: 0 4px 15px #31000080;
+}
+
+.footer {
+  position: absolute;
+  bottom: 17px;
+  left: 10px;
+  right: 10px;
+  font-size: 13px;
+  text-align: center;
+  color: white;
+}
+
+.progress {
+  width: min(100%, 405px);
+  height: 5px;
+  background: #555;
+  margin-top: 12px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bar {
+  width: 0;
+  height: 100%;
+  background: #ffcf48;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+button, a {
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button { background: #ffd55c; color: #720018; }
+a { background: white; color: #222; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<h2>🇳🇵 Dashain 2026</h2>
+
+<div class="video">
+  <iframe class="website"
+    src="https://rupeesend.github.io/dashain2026/"
+    title="RupeeSend campaign website">
+  </iframe>
+
+  <div class="shade"></div>
+
+  <div class="content">
+    <div class="flag">🇳🇵 🎉</div>
+    <div class="brand">RUPEESEND<br>DASHAIN 2026</div>
+
+    <div id="message" class="message">
+      यो दशैंमा RupeeSend बाट पैसा पठाउनुहोस्!
+    </div>
+
+    <div id="sub" class="sub">
+      नेपालसँग जोडिइरहनुहोस् ❤️
+    </div>
+
+    <div id="cta" class="cta" style="display:none">
+      SEND &amp; WIN!
+    </div>
+  </div>
+
+  <div class="footer">
+    rupeesend.github.io/dashain2026
+  </div>
+</div>
+
+<div class="progress">
+  <div id="bar" class="bar"></div>
+</div>
+
+<div class="controls">
+  <button onclick="startVideo()">▶ Play video</button>
+  <a href="https://rupeesend.github.io/dashain2026/"
+     target="_blank">Open campaign</a>
+</div>
+
+<p>Play the 20-second preview, then screen-record it.</p>
+
+<script>
+const scenes = [
+  {
+    time: 0,
+    message: "यो दशैंमा RupeeSend बाट पैसा पठाउनुहोस्!",
+    sub: "नेपालसँग जोडिइरहनुहोस् ❤️",
+    cta: false
+  },
+  {
+    time: 5,
+    message: "🎁 आकर्षक पुरस्कार जित्ने मौका नछुटाउनुहोस्!",
+    sub: "RupeeSend Dashain 2026",
+    cta: false
+  },
+  {
+    time: 10,
+    message: "📱 आजै सहभागी हुनुहोस्!",
+    sub: "हाम्रो अभियान हेर्नुहोस् र नियम पढ्नुहोस्।",
+    cta: false
+  },
+  {
+    time: 15,
+    message: "SEND & WIN!",
+    sub: "RupeeSend Dashain 2026",
+    cta: true
+  }
+];
+
+let timer;
+let startedAt;
+let running = false;
+
+function showScene(scene) {
+  const message = document.getElementById("message");
+  message.style.animation = "none";
+  message.offsetHeight;
+  message.style.animation = "appear .6s ease";
+  message.textContent = scene.message;
+
+  document.getElementById("sub").textContent = scene.sub;
+  document.getElementById("cta").style.display =
+    scene.cta ? "block" : "none";
+}
+
+function startVideo() {
+  clearInterval(timer);
+  running = true;
+  startedAt = Date.now();
+
+  function tick() {
+    const elapsed = (Date.now() - startedAt) / 1000;
+
+    if (elapsed >= 20) {
+      clearInterval(timer);
+      running = false;
+      showScene(scenes[3]);
+      document.getElementById("bar").style.width = "100%";
+      return;
+    }
+
+    let scene = scenes[0];
+    for (const item of scenes) {
+      if (elapsed >= item.time) scene = item;
+    }
+
+    if (window.currentScene !== scene.time) {
+      window.currentScene = scene.time;
+      showScene(scene);
+    }
+
+    document.getElementById("bar").style.width =
+      (elapsed / 20 * 100) + "%";
+  }
+
+  window.currentScene = -1;
+  tick();
+  timer = setInterval(tick, 100);
+}
+</script>
+
+</body>
+</html>
