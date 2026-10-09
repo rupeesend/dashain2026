@@ -327,77 +327,77 @@ function playNote() {
 let dashainTimer = null;
 let dashainStep = 0;
 
+
 async function startMusic() {
   if (!musicOn) return;
 
   try {
     const AudioCtx = window.AudioContext || window.webkitAudioContext;
-    if (!AudioCtx) {
-      alert("Your browser does not support audio.");
-      return;
-    }
+    if (!AudioCtx) return;
 
     if (!audioContext) audioContext = new AudioCtx();
-
     await audioContext.resume();
-    clearInterval(dashainTimer);
 
-    const melody = [
+    clearInterval(melodyTimer);
+
+    // Original Malashree-inspired festive melody
+    const notes = [
       392, 440, 494, 587, 494, 440, 392, 330,
-      392, 494, 587, 659, 587, 494, 440, 392,
-      330, 392, 440, 494, 440, 392, 330, 294,
-      392, 494, 587, 494, 440, 392, 330, 392
+      392, 440, 494, 587, 659, 587, 494, 440,
+      392, 330, 392, 440, 494, 440, 392, 330,
+      294, 330, 392, 440, 392, 330, 294, 330
     ];
 
-    function playDashainBeat() {
-      if (!musicOn || !audioContext ||
-          audioContext.state !== "running") return;
+    let step = 0;
 
-      const now = audioContext.currentTime;
-      const freq = melody[dashainStep % melody.length];
+    function playTone(freq, duration, type, volume) {
+      if (!audioContext || audioContext.state !== "running") return;
 
-      // Bright melodic note
       const osc = audioContext.createOscillator();
       const gain = audioContext.createGain();
-      osc.type = "triangle";
+      const now = audioContext.currentTime;
+
+      osc.type = type;
       osc.frequency.setValueAtTime(freq, now);
-      gain.gain.setValueAtTime(0.0001, now);
-      gain.gain.exponentialRampToValueAtTime(0.12, now + 0.025);
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.30);
+
+      gain.gain.setValueAtTime(0.001, now);
+      gain.gain.linearRampToValueAtTime(volume, now + 0.04);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
       osc.connect(gain);
       gain.connect(audioContext.destination);
       osc.start(now);
-      osc.stop(now + 0.32);
-
-      // Low rhythmic beat
-      if (dashainStep % 2 === 0) {
-        const bass = audioContext.createOscillator();
-        const bassGain = audioContext.createGain();
-        bass.type = "sine";
-        bass.frequency.setValueAtTime(100, now);
-        bassGain.gain.setValueAtTime(0.0001, now);
-        bassGain.gain.exponentialRampToValueAtTime(0.18, now + 0.015);
-        bassGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.12);
-        bass.connect(bassGain);
-        bassGain.connect(audioContext.destination);
-        bass.start(now);
-        bass.stop(now + 0.13);
-      }
-
-      dashainStep++;
+      osc.stop(now + duration + 0.02);
     }
 
-    playDashainBeat();
-    dashainTimer = setInterval(playDashainBeat, 240);
+    function playMalashreeNote() {
+      if (!musicOn) return;
+
+      const freq = notes[step % notes.length];
+
+      // Warm, bright melody
+      playTone(freq, 0.30, "triangle", 0.12);
+      playTone(freq * 2, 0.16, "sine", 0.025);
+
+      // Low festive rhythmic pulse
+      if (step % 2 === 0) {
+        playTone(110, 0.10, "sine", 0.12);
+      }
+
+      step++;
+    }
+
+    playMalashreeNote();
+    melodyTimer = setInterval(playMalashreeNote, 300);
 
   } catch (error) {
-    console.error("Dashain music could not start:", error);
+    console.error("Music could not start:", error);
   }
 }
 
 function stopMusic() {
-  clearInterval(dashainTimer);
-  dashainTimer = null;
+  clearInterval(melodyTimer);
+  melodyTimer = null;
 
   if (audioContext && audioContext.state === "running") {
     audioContext.suspend();
